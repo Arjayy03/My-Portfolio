@@ -12,10 +12,23 @@
 
         <!-- Scripts -->
         @routes
-        @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
+        @php
+            $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
+            $appJs = $manifest['resources/js/app.js']['file'] ?? '';
+            $pageKey = "resources/js/Pages/{$page['component']}.vue";
+            $pageJs = $manifest[$pageKey]['file'] ?? '';
+            $appCss = $manifest['resources/js/app.js']['css'] ?? [];
+        @endphp
+        @foreach($appCss as $css)
+            <link rel="stylesheet" href="/build/{{ $css }}">
+        @endforeach
         @inertiaHead
     </head>
     <body class="font-sans antialiased">
         @inertia
+        <script type="module" src="/build/{{ $appJs }}"></script>
+        @if($pageJs)
+        <script type="module" src="/build/{{ $pageJs }}"></script>
+        @endif
     </body>
 </html>
