@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "outputDirectory": "public",
   "builds": [
     {
       "src": "api/index.php",
@@ -28,7 +29,6 @@
     }
   ],
   "env": {
-    "APP_KEY": "base64:gX5xI3jWXIA8DZBlyMr3AdO+OFbFXGH0FGzpHdsStlQ=",
     "APP_ENV": "production",
     "APP_DEBUG": "false",
     "APP_CONFIG_CACHE": "/tmp/config.php",
