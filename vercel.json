@@ -5,7 +5,7 @@
       "src": "api/index.php",
       "use": "vercel-php@0.7.3",
       "config": {
-        "installCommand": "npm install && npm run build && php artisan config:clear && php artisan route:clear && php artisan view:clear"
+        "installCommand": "npm install && npm run build"
       }
     }
   ],
@@ -30,7 +30,8 @@
   "env": {
     "APP_KEY": "base64:MC+2RJHuEM6m9bO7owMQnBHsJwXi+K7Ai0DjE7Q2YOU=",
     "APP_ENV": "production",
-    "APP_DEBUG": "false",
+    "APP_DEBUG": "true",
+    "APP_URL": "https://arjaydadivas.com",
     "APP_CONFIG_CACHE": "/tmp/config.php",
     "APP_EVENTS_CACHE": "/tmp/events.php",
     "APP_PACKAGES_CACHE": "/tmp/packages.php",
